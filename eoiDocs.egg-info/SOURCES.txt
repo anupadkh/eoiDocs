@@ -1,0 +1,9 @@
+bin/eoiDocs
+eoiDocs/__init__.py
+eoiDocs/processDoc.py
+eoiDocs.egg-info/PKG-INFO
+eoiDocs.egg-info/SOURCES.txt
+eoiDocs.egg-info/dependency_links.txt
+eoiDocs.egg-info/requires.txt
+eoiDocs.egg-info/top_level.txt
+eoiDocs.egg-info/zip-safe

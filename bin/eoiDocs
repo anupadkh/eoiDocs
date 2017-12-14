@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+import click, eoiDocs
+import os, sys, shutil
+
+@click.group()
+def gr1():
+    pass
+
+@gr1.command()
+def PackingList():
+    '''
+    Make a packing list
+    '''
+    eoiDocs.PackingList().make()
+
+
+if __name__ == "__main__":
+    gr1()
