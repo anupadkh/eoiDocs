@@ -20,6 +20,7 @@ setup(name='eoiDocs',
     scripts=['bin/eoiDocs'],
     package_data = {
         'eoiDocs.tex' : ['*'],
+        'tex': ['*']
     },
     include_package_data=True,
     zip_safe=True)

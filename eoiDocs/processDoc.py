@@ -4,7 +4,7 @@ from pylatex.document import Document
 from pylatex import Section, Subsection, Command, UnsafeCommand
 from pylatex.table import Tabular, Tabu, LongTabu
 from pylatex.utils import italic, NoEscape, bold
-import pkg_resources
+import pkg_resources, readline
 
 TEX_PATH = pkg_resources.resource_filename('eoiDocs', 'tex/')
 class OrderItems(Environment):
@@ -13,25 +13,39 @@ class OrderItems(Environment):
 
 class Doc(object):
     defaultImagePath = os.path.join(TEX_PATH, "images")
-    def make(self):
+    def make(self, company = 'heo'):
         #Get doc to enter
         #ask for a place to save the output
         #make doc
         while(True):
             savePath = click.prompt("Enter a directory to save to")
             if(os.path.isdir(savePath)):
+                os.chdir(savePath)
                 break
             else:
                 print("Directory {} does not exist".format(savePath))
-
+        
         doc = Document(documentclass = self.docClass)
         doc.set_variable('graphicsPath', "{%s}, {%s}"%(self.imagePath, self.defaultImagePath))
         #doc.set_variable('images', self.imagePath)
-
-        self.genDoc(doc)
+        if company == 'eoi':
+            context = {
+                'company':'ElectroOptical Innovations, LLC',
+                'website':'https://electrooptical.net',
+                'email':'info@electrooptical.net',
+                'logo':os.path.join(self.defaultImagePath, 'eoiLogo.png')
+            }
+        else:
+            context = {
+                'company':'Hobbs ElectroOptics',
+                'website':'https://hobbs-eo.com',
+                'email':'info@hobbs-eo.com',
+                'logo':os.path.join(self.defaultImagePath, 'heoRightJust.pdf')
+            }
+        self.genDoc(doc, context)
         doc.generate_pdf(clean_tex=False)
 
-    def genDoc(self, doc):
+    def genDoc(self, doc, context):
         pass
 
 
@@ -40,7 +54,7 @@ class PackingList(Doc):
     docClass = os.path.join(TEX_PATH, texBase, "packingList")
     imagePath = os.path.join(TEX_PATH, texBase, "images")
 
-    def genDoc(self, doc):
+    def genDoc(self, doc, context):
         shipMethod = click.prompt('Shipping Method', default = 'USPS Priority')
         orderNumber = click.prompt('Order Number', default = '1')
         invoiceNumber = click.prompt('Invoice Number', default = '1')
@@ -66,7 +80,12 @@ class PackingList(Doc):
             shippingAddressB = addressB
             shippingAddressC = addressC 
         
-        doc.set_variable('logo', os.path.join(self.defaultImagePath, 'heoRightJust.pdf'))
+        doc.set_variable('logo', context['logo'])#os.path.join(self.defaultImagePath, 'heoRightJust.pdf'))
+        doc.set_variable('company', context['company'])
+        doc.set_variable('email', context['email'])
+        doc.set_variable('website', context['website'])
+
+
         doc.set_variable('shipMethod', shipMethod)
         doc.set_variable('orderNumber', orderNumber)
         doc.set_variable('invoiceNumber', invoiceNumber)

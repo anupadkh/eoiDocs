@@ -7,11 +7,12 @@ def gr1():
     pass
 
 @gr1.command()
-def PackingList():
+@click.option('--company', '-c', type = click.Choice(['eoi', 'heo']))
+def PackingList(company):
     '''
     Make a packing list
     '''
-    eoiDocs.PackingList().make()
+    eoiDocs.PackingList().make(company)
 
 
 if __name__ == "__main__":

@@ -9,10 +9,10 @@
 
 %--------------------------------------------------------
 % Our Information
-\newcommand\email{info@hobbs-eo.com}
+%\newcommand\email{info@hobbs-eo.com}
 \newcommand\phone{(914) 236-3005}
-\newcommand\website{http://hobbs-eo.com}
-\newcommand\company{Hobbs ElectroOptics}
+%\newcommand\website{http://hobbs-eo.com}
+%\newcommand\company{Hobbs ElectroOptics}
 
 \newcommand\addressA{160 N. State Road}
 \newcommand\addressB{Suite 203}
@@ -124,7 +124,7 @@
 		\textbf{Invoice: }&\invoiceNumber\\
 		\textbf{Order Date: }&\orderDate\\
 		\textbf{Document Date: }&\documentDate\\
-		\textbf{Items: }&\items\\
+		\textbf{Line Items: }&\items\\
 		\end{tabular*}
 	\end{infoBox}
 }
