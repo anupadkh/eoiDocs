@@ -1,0 +1,48 @@
+\documentclass{commercialInvoice}
+
+%--------------------------------------------------------
+% Our Information
+\renewcommand\email{simon.hobbs@electrooptical.net}
+\renewcommand\phone{(914) 236-3005}
+\renewcommand\website{https://electrooptical.net}
+\renewcommand\company{ElectroOptical Innovations, LLC}
+\renewcommand\shipper{Simon Hobbs}
+\renewcommand\logo{eoiLogo}
+
+%------------------------------------------------------
+% Order Info
+\renewcommand\shipMethod{USPS Priority}
+\renewcommand\orderNumber{2}
+\renewcommand\invoiceNumber{1}
+\renewcommand\orderDate{March 06, 2018}
+\renewcommand\termsOfSale{N/A}
+\renewcommand\documentDate{\today}
+\renewcommand\items{3}
+\renewcommand\authorizedBy{\shipper}
+\renewcommand\lbs{0}
+\renewcommand\ounces{11.2}
+\renewcommand\TIN{}
+\renewcommand\purpose{Return of samples}
+
+%------------------------------------------------------
+% Billing Info
+\renewcommand\shippingCountry{Finland}
+\renewcommand\billingName{Miikkael Niemi}
+\renewcommand\billingCompany{Sparklike Oy}
+\renewcommand\billingAddressA{Hermannin rantatie 12 A 21 00580}
+\renewcommand\billingAddressB{Helsinki}
+\renewcommand\billingAddressC{\shippingCountry}
+
+\begin{document}
+    \textbf{Commercial Invoice}
+	\makePackagingList
+	\begin{orderItem}%This is a tabular environment with 6 fields
+	%\textbf{Ordered}& \textbf{Line Item}&\textbf{Location}&  \textbf{Item}& \textbf{Shipped}& \textbf{Backordered}\\\hline
+        1&2&&The One Ring, to rule them all&1&\\\hline
+        19&1&&Rings of Power&19&\\\hline
+        1&2&&The One Ring, to rule them all&1&\\\hline
+	\end{orderItem}
+
+    \makeSignatures
+
+\end{document}
