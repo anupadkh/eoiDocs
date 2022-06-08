@@ -8,15 +8,17 @@
 \usepackage[letterpaper,landscape,left=.5in,right=.5in,top=.5in,bottom=1in]{geometry}
 \graphicspath{{../images/}}
 
+\iffalse
 %--------------------------------------------------------
 % Our Information
 \newcommand\email{info@hobbs-eo.com}
-\newcommand\phone{(914) 236-3005}
 \newcommand\website{http://hobbs-eo.com}
 \newcommand\company{Hobbs ElectroOptics}
-\newcommand\shipper{Simon Hobbs}
 \newcommand\logo{eoiLogo}
+\fi
 
+\newcommand\shipper{Simon Hobbs}
+\newcommand\phone{(914) 236-3005}
 \newcommand\city{Briarcliff Manor}
 \newcommand\state{New York}
 \newcommand\addressA{160 N. State Road}
@@ -27,6 +29,7 @@
 \newcommand\contactA{\website}
 \newcommand\contactB{\email}
 
+\iffalse
 %------------------------------------------------------
 % Order Info
 \newcommand\shipMethod{USPS Priority}
@@ -65,6 +68,8 @@
 \newcommand\shippingAddressB{\billingAddressB}
 \newcommand\shippingAddressC{\billingAddressC}
 
+\fi
+
 \usepackage{xcolor}%
 \definecolor{webblue}{rgb}{0, 1, 1}  % less intense blue
 \definecolor{webred}{rgb}{2, 0.4, 0}   % less intense red
@@ -73,6 +78,8 @@
 \definecolor{eoilogo}{RGB}{23,121,107}
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{darkblue}{RGB}{0,0,150}
+
+
 
 \newcommand\lineColor{eoilogo}
 
@@ -120,7 +127,7 @@
 }
 
 	\newenvironment{infoBox}{\begin{minipage}{.3\textwidth}
-		\begin{tcolorbox}[height = 90pt, width=\textwidth,colback={white}, colbacktitle=white,boxrule=1pt,toprule=1pt,coltitle = black, outer arc=0mm, arc = 0mm]
+		\begin{tcolorbox}[height = 110pt, width=\textwidth,colback={white}, colbacktitle=white,boxrule=1pt,toprule=1pt,coltitle = black, outer arc=0mm, arc = 0mm]
 		}
 	{\end{tcolorbox}\end{minipage}}
 	\newenvironment{halfBox}[1][90pt]{\begin{minipage}{.5\textwidth}
@@ -139,7 +146,9 @@
 		\company\\
 		\addressA, \addressB\\
 		\addressC\\
-        \country
+        \country\\
+        \addShipLineA\\
+        \addShipLineB\\
 	\end{infoBox}
 	\begin{minipage}{.04\textwidth}
 	~
@@ -151,7 +160,9 @@
 		\billingCompany\\
 		\billingAddressA\\
 		\billingAddressB\\
-		\billingAddressC
+		\billingAddressC\\
+        \addBillLineA\\
+        \addBillLineB\\
 	\end{infoBox}
 	\begin{minipage}{.04\textwidth}
 	~
@@ -163,7 +174,9 @@
 		\shippingCompany\\
 		\shippingAddressA\\
 		\shippingAddressB\\
-		\shippingAddressC
+		\shippingAddressC\\
+        \addReceiveLineA\\
+        \addReceiveLineB
 	\end{infoBox}
 }
 
@@ -186,7 +199,6 @@
 	\begin{halfBox}[70pt]
 		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l}
 		\textbf{Terms of Sale: }&\termsOfSale\\
-		\textbf{Tax ID Number: }&\TIN\\
 		\textbf{Purpose of Shipment: }&\purpose\\
 		\textbf{Country of Destination: }&\shippingCountry\\
 		\textbf{Gross Weight: }&\lbs\textbf{lb}~~\ounces\textbf{oz}\\
